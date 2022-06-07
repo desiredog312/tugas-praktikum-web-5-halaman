@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background-image: url(background.jpg);
+            }
+            .topnav {
+            overflow: hidden;
+            background-color: white;
+            position: fixed;
+            width: 100%;
+            }
+            .ha{
+                background-image: url(logo.png);
+                width: 100px;
+                height: 50px;
+                background-size: contain;
+                background-repeat: no-repeat;
+                float: left;
+            }
+            .topnav a {
+            float: left;
+            color: lightblue;
+            text-align: center;
+            padding: 14px 30px;
+            text-decoration: none;
+            font-size: 17px;
+            }
+            .topnav label {
+            float: left;
+            color: black;
+            text-align: center;
+            padding: 14px 30px;
+            text-decoration: none;
+            font-size: 17px;
+            }
+            .topnav a:hover {
+            color: black;
+            }
+            #containerimage{
+                background-color:white;
+                color:black;
+                border: 1px solid rgb(143,143,143);
+                width: 30%;
+                padding-left: 30px;
+                padding-right: 30px;
+                padding-top: 30px;
+                padding-bottom: 30px;
+                border-radius: 10px;
+                float: left;
+                margin-left: 20px;
+                margin-top: 10px;
+            }
+            
+            .gambar{
+                background-image: url('640px-User_icon_2.svg.png');
+                width: 100px;
+                height: 100px;
+                background-size: contain;
+                background-repeat: no-repeat;
+                float: left;
+            }
+        </style>
+    <!-- Jangan lupa cantumkan link CDN dibawah ini : -->
+    <!-- Jangan lupa untuk import css JQUERY UI -->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css" />
+
+    <!-- Jangan lupa juga untuk import CDN JQUERY dan JQUERY UI nya, CDN JQUERY UI diletakkan dibawah JQUERY -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+    </head>
+    <body>
+        <div class="topnav">
+            <div class="ha"></div>
+            <label for="">Profil Anda</label>
+            <a href="praktikum2.html">Katalog Barang #1</a>
+            <a href="praktikum3.html">Katalog Barang #2</a>
+            <a href="praktikum4.html">Reviews</a>
+        </div>
+        <div style="padding-top:30px;">
+        <h3>Profil Anda</h3>
+        <hr>
+        <div id="containerimage">
+            <div class="gambar"></div>
+            <p>Nama: <span id="result-name"/></p>
+            <div id="lahir" style="float: left;">Umur: -</div>
+            <br>
+            <p>Tanggal lahir : <input type="text" class="datepicker" id="dtpTanggal"/></p>
+            <button>Update Umur</button>
+        </div>
+        </div>
+        <script>
+            const name = sessionStorage.getItem('NAME');
+            document.getElementById('result-name').innerHTML = name;
+            $(".datepicker").datepicker({
+            monthNames: [ "Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli","Agustus","September","October","November","Desember"],
+            dateFormat: "dd MM yy",
+            });
+            $("button").click(function () {
+                tgllahir = $("#dtpTanggal").val();
+                var tahun1 = tgllahir.split(' ');
+                var tahun2 = parseInt(tahun1[2]);
+                var tahunlahir = 2022-tahun2;
+                document.getElementById("lahir").innerHTML = ("Umur: "+tahunlahir);
+            })
+        </script>
+    </body>
+</html>

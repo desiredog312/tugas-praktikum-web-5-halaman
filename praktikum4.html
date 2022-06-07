@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background-image: url(background.jpg);
+            }
+            .topnav {
+            overflow: hidden;
+            background-color: white;
+            position: fixed;
+            width: 100%;
+            }
+            .ha{
+                background-image: url(logo.png);
+                width: 100px;
+                height: 50px;
+                background-size: contain;
+                background-repeat: no-repeat;
+                float: left;
+            }
+            .topnav a {
+            float: left;
+            color: lightblue;
+            text-align: center;
+            padding: 14px 30px;
+            text-decoration: none;
+            font-size: 17px;
+            }
+            .topnav label {
+            float: left;
+            color: black;
+            text-align: center;
+            padding: 14px 30px;
+            text-decoration: none;
+            font-size: 17px;
+            }
+            .topnav a:hover {
+            color: black;
+            }
+            .containerimage{
+                background-color:white;
+                color:black;
+                border: 1px solid rgb(143,143,143);
+                width: 30%;
+                padding-left: 30px;
+                padding-right: 30px;
+                padding-top: 30px;
+                padding-bottom: 45px;
+                border-radius: 10px;
+                margin-left: 20px;
+                margin-top: 10px;
+            }
+            
+            .gambar{
+                background-image: url('640px-User_icon_2.svg.png');
+                width: 100px;
+                height: 100px;
+                background-size: contain;
+                background-repeat: no-repeat;
+                float: left;
+            }
+        </style>
+        <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css" />
+        <!-- Jangan lupa juga untuk import CDN JQUERY dan JQUERY UI nya, CDN JQUERY UI diletakkan dibawah JQUERY -->
+        <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+        <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+    </head>
+    <body>
+        <div class="topnav">
+            <div class="ha"></div>
+            <a href="praktikum5.html">Profil Anda</a>
+            <a href="praktikum2.html">Katalog Barang #1</a>
+            <a href="praktikum3.html">Katalog Barang #2</a>
+            <label for="">Reviews</label>
+        </div>
+        <div style="padding-top:30px;">
+        <h3>Reviews</h3>
+        <hr>
+                <h3>Leave a Comment</h3>
+                <br>
+                <textarea id="catatan" cols="80" rows="10"></textarea>
+                <br>
+        <button>Submit Comment</button>
+        <div class="containerimage">
+            <h3>Review #1</h3>
+            <div class="gambar"></div>
+            <label for=""><b>Bagus</b></label>
+            <hr>
+            Website lumayan, seleksi barangnya sedikit.
+        </div>
+        <div class="containerimage">
+            <h3>Review #2</h3>
+            <div class="gambar"></div>
+            <label for=""><b>Winda</b></label>
+            <hr>
+            Biasa-biasa saja.
+        </div>
+        <div class="containerimage">
+            <h3>Review #3</h3>
+            <div class="gambar"></div>
+            <label for=""><b>Doni</b></label>
+            <hr>
+            Nyesal ke website ini.
+        </div>
+        <div class="komentar">
+        </div>
+        </div>
+        <script>
+                const name = sessionStorage.getItem('NAME');
+                var ctr = 4;
+                $("button").click(function () {
+                catatan = $("#catatan").val();
+                if (catatan == "") {
+                    alert("Review tidak boleh kosong")
+                }
+                else{
+                let catatantambahan = $(`<div>
+                    <h3>Review #${ctr}</h3>
+                    <div class="gambar"></div>
+                    <label for=""><b>${name}</b></label>
+                <hr>
+                ${catatan}
+                </div>`);
+                $(".komentar").append(catatantambahan);
+                catatantambahan.addClass(`containerimage`);
+                ctr++;
+                }
+            })
+        </script>
+    </body>
+</html>

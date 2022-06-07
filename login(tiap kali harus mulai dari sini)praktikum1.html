@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background-image: url(background.jpg);
+            padding-top: 200px;
+            }
+            form.containerlogin{
+                background-color:white;
+                color:black;
+                box-shadow: 5px 5px 5px gray;
+                width: 30%;
+                margin: auto;
+                padding-left: 30px;
+                padding-right: 30px;
+                padding-top: 30px;
+                padding-bottom: 30px;
+                border-radius: 10px;
+            }
+            input[type=text] {
+                width: 180%;
+                height: 20px;
+                background-color: white;
+                border: 1px solid rgb(143,143,143);
+                border-radius: 10px;
+            }
+            input[type=submit] {
+                width: 550%;
+                height: 20px;
+                background-color: lightblue;
+                border: 1px solid rgb(143,143,143);
+                border-radius: 7px;
+                color: white;
+                padding-top: 5px;
+                padding-bottom: 20px;
+            }
+            input[type=submit]:hover{
+                cursor: pointer;
+                color: black;
+            }
+        </style>
+    </head>
+    <body>
+        <form action="praktikum5.html" method="POST" class="containerlogin">
+            <h3 align="center">Login</h3>
+            <hr>
+            <table>
+                <tr>
+                    <td>Username</td>
+                    <td>:</td>
+                    <td><input type="text" placeholder="Username" id="name" name="name"></td>
+                </tr>
+                <tr>
+                    <td>Password</td>
+                    <td>:</td>
+                    <td><input type="text" placeholder="Password" id="inputan2"></td>
+                </tr>
+                <tr>
+                    <td rowspan="3"><input type="submit" value="Log In" onclick="handleSubmit()" ></td>
+                </tr>
+            </table>
+        </form>
+        <script>
+            function handleSubmit () {
+            const name = document.getElementById('name').value;
+            sessionStorage.setItem("NAME", name);
+            return;
+            }
+        </script>
+    </body>
+</html>
